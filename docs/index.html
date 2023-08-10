@@ -61,9 +61,9 @@
                     else {
                         scr="";
                     }
+                    scr = "script '"dryice.out';";
                     Jmol.setAppletCss('jmolBox');
-                    //jmolApplet0=Jmol.getApplet("jmolApplet0", info);
-                    jmolApplet0=Jmol.getApplet("jmolApplet0", "load dryice.out; vibration on");
+                    jmolApplet0=Jmol.getApplet("jmolApplet0", info);
                     Jmol.script(jmolApplet0, 'javascript init(scr); axes off; unitcell off;');
                 </script>
             </div>
