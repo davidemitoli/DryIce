@@ -61,6 +61,7 @@
                     else {
                         scr="";
                     }
+                    scr="script 'dryice.out';"
                     Jmol.setAppletCss('jmolBox');
                     jmolApplet0=Jmol.getApplet("jmolApplet0", info);
                     Jmol.script(jmolApplet0, 'javascript init(scr); axes off; unitcell off;');
@@ -210,8 +211,7 @@
                     Jmol.script(jmolApplet0, 'javascript init(scr); axes off; unitcell off;');
                     jmolIsReady();
                 };
-                //reader.readAsText(file);
-                reader.readAsText('dryice.out');
+                reader.readAsText(file);
             }
 
             //lettura del file .spt
