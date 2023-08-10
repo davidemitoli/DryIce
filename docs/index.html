@@ -61,7 +61,23 @@
                     else {
                         scr="";
                     }
-                    scr = "script 'dryice.out';";
+                    var info = {
+                        width: 420,
+                        height: 300,
+                        debug: false,
+                        color: "0xFFFFFF",
+                        addSelectionOptions: true,
+                        use: "HTML5",   // JAVA HTML5 WEBGL are all options
+                        j2sPath: "./j2s", // this needs to point to where the j2s directory is.
+                        jarPath: "./java",// this needs to point to where the java directory is.
+                        jarFile: "JmolAppletSigned.jar", 
+                        isSigned: true, 
+                        script: "set zoomlarge false;set antialiasDisplay;load dryice.out", 
+                        readyFunction: jmol_isReady, 
+                        disableJ2SLoadMonitor: true, 
+                        disableInitialConsole: true, 
+                        allowJavaScript: true
+}
                     Jmol.setAppletCss('jmolBox');
                     jmolApplet0=Jmol.getApplet("jmolApplet0", info);
                     Jmol.script(jmolApplet0, 'javascript init(scr); axes off; unitcell off;');
