@@ -389,10 +389,10 @@ function getFromName(str,expr) {
 }
 ////////////////////////////////////////////////////////////
 function fillHtml(){
-    if(typeof(authors=="undefined" || authors=="")){authors="CRYSTAL user"}
+    if(typeof(authors=="" || authors=="")){authors=""}
     //if(typeof(title)=="undefined" || title==""){title=modelSetName}
-    if(typeof(title)=="undefined" || title==""){title="Animation of vibrational modes and Simulated IR/Raman spectra with CRYSTAL"}
-    if(typeof(reference)=="undefined" || reference==""){reference="Unpublished"}
+    if(typeof(title)=="" || title==""){title="Animation of Vibrational Modes of Dry Ice"}
+    if(typeof(reference)=="" || reference==""){reference=""}
     document.getElementById("cite").innerHTML=reference;
     document.getElementById("auth").innerHTML=authors;
     document.getElementById("titre").innerHTML=title;
