@@ -29,7 +29,7 @@
         // Initialize JSmol
         jmolApplet = Jmol.getApplet("jmolApplet", {
             width: "100%",
-            height: 500,
+            //height: 500,
             j2sPath: "jsmol/j2s",
             jarPath: "jsmol/java",
             jarFile: "JmolApplet.jar",
@@ -37,7 +37,7 @@
             debug: false,
             use: "HTML5",
             //script: 'load dryice.out; axes off; unitcell off;'
-            script: 'load dryice.out; axes off; unitcell off, supercell 2 2 2;'
+            script: 'load dryice.out; axes off; unitcell off, supercell 3 3 3;'
         });
 
         // Show selected vibrational mode
