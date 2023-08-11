@@ -42,15 +42,6 @@
 
         
 
-        <script>
-
-            $('#select_ir_raman').show();
-
-            jmolInitialize("jsmol", true)
-            //Jmol.script(jmolApplet0, 'load dryice.out; axes off; unitcell off; vibration on;');
-            jmolApplet(250, 'load dryice.out; axes off; unitcell off; vibration on;');
-
-        </script>
 
 
 
@@ -82,7 +73,8 @@
                     }
                     Jmol.setAppletCss('jmolBox');
                     jmolApplet0=Jmol.getApplet("jmolApplet0", info);
-                    Jmol.script(jmolApplet0, 'javascript init(scr); axes off; unitcell off;');
+                    //Jmol.script(jmolApplet0, 'javascript init(scr); axes off; unitcell off;');
+                    Jmol.script(jmolApplet0, 'load dryice.out; axes off; unitcell off;');
                 </script>
             </div>
         </div>
