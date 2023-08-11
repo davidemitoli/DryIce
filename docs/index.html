@@ -44,7 +44,8 @@
         function showSelectedMode() {
             var selectedMode = document.getElementById("modeSelect").value;
             var script = "vibration ON; vibration SCALE 2; vibration MODE " + selectedMode + ";";
-            jmolApplet.script(script);
+            //jmolApplet.script(script);
+            jmolScript(script);
         }
     </script>
 </body>
