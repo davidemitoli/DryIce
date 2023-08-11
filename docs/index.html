@@ -8,7 +8,7 @@
 <body>
     <h1>Crystal Structure Visualization with JSmol</h1>
     
-    <!--    <div id="jmolApplet" style="width: 100%; height: 500px;"></div> -->
+    <div id="jmolApplet" style="width: 100%; height: 500px;"></div>
     
     <div>
         <label for="modeSelect">Select Vibrational Mode:</label>
@@ -16,37 +16,50 @@
             <option value="0">Mode 0</option>
             <option value="1">Mode 1</option>
             <option value="2">Mode 2</option>
-            <option value="3">Mode 3</option>
-            <option value="15">Mode 15</option>
+            <option value="12">Mode 12</option>
             <!-- Add more options for different modes -->
         </select>
-        <button onclick="showSelectedMode()">Show Mode</button>
+        <button id="showModeButton">Show Mode</button>
+        <button id="animateButton">Animate</button>
     </div>
 
     <script>
         var jmolApplet;
+        var animationInterval;
 
         // Initialize JSmol
         jmolApplet = Jmol.getApplet("jmolApplet", {
             width: "100%",
-            //height: 500,
+            height: 500,
             j2sPath: "jsmol/j2s",
             jarPath: "jsmol/java",
             jarFile: "JmolApplet.jar",
             isSigned: false,
             debug: false,
             use: "HTML5",
-            //script: 'load dryice.out; axes off; unitcell off;'
-            script: 'load dryice.out; axes off; symmetry on; set unitcell 3x3x3;'
+            script: 'load dryice.out; axes off; unitcell off; symmetry on;'
         });
 
         // Show selected vibrational mode
-        function showSelectedMode() {
+        document.getElementById("showModeButton").addEventListener("click", function() {
             var selectedMode = document.getElementById("modeSelect").value;
             var script = "vibration ON; vibration SCALE 2; vibration MODE " + selectedMode + ";";
-            //jmolApplet.script(script);
-            Jmol.script(script);
-        }
+            jmolApplet._script(script);
+        });
+
+        // Animate vibrational modes
+        document.getElementById("animateButton").addEventListener("click", function() {
+            var currentMode = 0;
+            var numModes = document.getElementById("modeSelect").options.length;
+
+            clearInterval(animationInterval);
+            animationInterval = setInterval(function() {
+                var script = "vibration ON; vibration SCALE 2; vibration MODE " + currentMode + ";";
+                jmolApplet._script(script);
+                
+                currentMode = (currentMode + 1) % numModes;
+            }, 1000); // Animation interval in milliseconds
+        });
     </script>
 </body>
 </html>
