@@ -2,15 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Crystal Structure Visualization with JSmol</title>
-    <script type="text/javascript" src="jsmol/JSmol.min.js"></script>
+    <title>Vibrational Modes Visualization with JSmol</title>
+    <script type="text/javascript" src="JSmol.min.js"></script>
 </head>
 <body>
-    <h1>Crystal Structure Visualization with JSmol</h1>
+    <h1>Vibrational Modes Visualization with JSmol</h1>
     
-    <!--
     <div id="jmolApplet" style="width: 100%; height: 500px;"></div>
-    -->
     
     <div>
         <label for="modeSelect">Select Vibrational Mode:</label>
@@ -18,33 +16,27 @@
             <option value="0">Mode 0</option>
             <option value="1">Mode 1</option>
             <option value="2">Mode 2</option>
-            <option value="12">Mode 12</option>
             <!-- Add more options for different modes -->
         </select>
         <button id="showModeButton">Show Mode</button>
-
     </div>
 
     <script>
         var jmolApplet;
 
         // Initialize JSmol
+        Jmol._isAsync = false; // Load synchronously
         jmolApplet = Jmol.getApplet("jmolApplet", {
             width: "100%",
             height: 500,
-            j2sPath: "jsmol/j2s",
-            jarPath: "jsmol/java",
-            jarFile: "JmolApplet.jar",
-            isSigned: false,
-            debug: false,
-            use: "HTML5",
-            script: 'load dryice.out {2 2 2}; axes off; unitcell off;'
+            j2sPath: "j2s",
+            script: 'load data "dryice.out" {2 2 2}; vibration off; axes off; unitcell off;'
         });
 
         // Show selected vibrational mode
         document.getElementById("showModeButton").addEventListener("click", function() {
             var selectedMode = document.getElementById("modeSelect").value;
-            var script = "vibration ON; vibration SCALE 2; vibration MODE " + selectedMode + ";";
+            var script = 'vibration ON; vibration SCALE 2; vibration MODE ' + selectedMode + ';';
             jmolApplet.script(script);
         });
     </script>
