@@ -37,15 +37,14 @@
             isSigned: false,
             debug: false,
             use: "HTML5",
-            script: 'load dryice.out {2 2 2}; axes off; unitcell off; vibration on;'
+            script: 'load dryice.out {2 2 2}; axes off; unitcell off;'
         });
 
         // Show selected vibrational mode
-        function showSelectedMode() {
+        document.getElementById("showModeButton").addEventListener("click", function() {
             var selectedMode = document.getElementById("modeSelect").value;
             var script = "vibration ON; vibration SCALE 2; vibration MODE " + selectedMode + ";";
-            //jmolApplet.script(script);
-            jmolScript(script);
+            jmolApplet.script(script);
         }
     </script>
 </body>
