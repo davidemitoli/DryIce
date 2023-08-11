@@ -43,37 +43,12 @@
 
         <script>
 
-            //usando jquery mostro la select IR/RAMAN
             $('#select_ir_raman').show();
 
-            //imposto a true il flag che distingue tra caricamento da url e caricamento da tasto choosefile
-            flagInputFile = true;
-
-            //imposto a vuoto la variabile che contiene lo stile con un eventuale file .spt
-            scr = "";
-
-            var files = new File([""], "dryice.out");
-
-            for (var i = 0; i < files.length; ++i) {
-
-                var file = files[i];
-                var data_filename = file.name;
-                var file_ext = data_filename.split('.').pop();
-
-                 //lettura dei file .out oppure .xyz
-                 if (file_ext == 'out' || file_ext == 'xyz') {
-
-                    var reader = new FileReader();
-
-                    //estraggo i dati dal file
-                    fileContent = new File([""], "dryice.out"); 
-
-                    setParameters(file_ext);
-                    Jmol.script(jmolApplet0, 'javascript init(scr); axes off; unitcell off;');
-                    jmolIsReady();
-                };
-                reader.readAsText(file);
-            }
+            setParameters("out");
+            Jmol.script(jmolApplet0, 'load dryice.out; axes off; unitcell off; vibration on;');
+            jmolIsReady();
+            reader.readAsText(file);
 
         </script>
 
