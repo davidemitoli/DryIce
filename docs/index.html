@@ -8,7 +8,7 @@
 <body>
     <h1>Crystal Structure Visualization with JSmol</h1>
     
-    <div id="jmolApplet" style="width: 100%; height: 500px;"></div>
+    <!--    <div id="jmolApplet" style="width: 100%; height: 500px;"></div> -->
     
     <div>
         <label for="modeSelect">Select Vibrational Mode:</label>
@@ -37,7 +37,7 @@
             debug: false,
             use: "HTML5",
             //script: 'load dryice.out; axes off; unitcell off;'
-            script: 'load dryice.out; axes off; unitcell off, supercell 3 3 3;'
+            script: 'load dryice.out; axes off; unitcell 3 3 3;'
         });
 
         // Show selected vibrational mode
