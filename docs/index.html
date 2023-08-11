@@ -24,6 +24,7 @@
     </div>
     <div class="row" style="margin-top: -20px;">
         <div class="col-md-4"></div>
+        <!--
         <div class="col-md-4">
             <div align="center">
                 <div class="form-group" >
@@ -36,6 +37,49 @@
                 </div>
             </div>
         </div>
+        -->
+
+        
+
+        <script>
+
+            //usando jquery mostro la select IR/RAMAN
+            $('#select_ir_raman').show();
+
+            //imposto a true il flag che distingue tra caricamento da url e caricamento da tasto choosefile
+            flagInputFile = true;
+
+            //imposto a vuoto la variabile che contiene lo stile con un eventuale file .spt
+            scr = "";
+
+            var files = "dryice.out";
+
+            for (var i = 0; i < files.length; ++i) {
+
+                var file = files[i];
+                var data_filename = file.name;
+                var file_ext = data_filename.split('.').pop();
+
+                 //lettura dei file .out oppure .xyz
+                 if (file_ext == 'out' || file_ext == 'xyz') {
+
+                    var reader = new FileReader();
+
+                    //estraggo i dati dal file
+                    fileContent = "dryice.out";
+
+                    setParameters(file_ext);
+                    Jmol.script(jmolApplet0, 'javascript init(scr); axes off; unitcell off;');
+                     jmolIsReady();
+                };
+                reader.readAsText(file);
+            }
+
+        </script>
+
+
+
+
         <div class="col-md-4"></div>
     </div>
     <div class="row">
@@ -55,13 +99,12 @@
             <div id="div_jsmol">
                 <div id="caption"></div>
                 <script>
-                    //if (withJmolFile) {
-                    //    scr="script '"+jmolFileName+"';";
-                    //}
-                    //else {
-                    //    scr="";
-                    //}
-                    scr="script '"+"dryice.out"+"';";
+                    if (withJmolFile) {
+                        scr="script '"+jmolFileName+"';";
+                    }
+                    else {
+                        scr="";
+                    }
                     Jmol.setAppletCss('jmolBox');
                     jmolApplet0=Jmol.getApplet("jmolApplet0", info);
                     Jmol.script(jmolApplet0, 'javascript init(scr); axes off; unitcell off;');
@@ -191,8 +234,7 @@
         //imposto a vuoto la variabile che contiene lo stile con un eventuale file .spt
         scr = "";
 
-        //var files = e.target.files;
-        var files = "dryice.out";
+        var files = e.target.files;
 
         for (var i = 0; i < files.length; ++i) {
 
