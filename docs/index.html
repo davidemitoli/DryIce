@@ -52,7 +52,7 @@
             //imposto a vuoto la variabile che contiene lo stile con un eventuale file .spt
             scr = "";
 
-            var files = "dryice.out";
+            var files = new File([""], "dryice.out");
 
             for (var i = 0; i < files.length; ++i) {
 
@@ -66,11 +66,11 @@
                     var reader = new FileReader();
 
                     //estraggo i dati dal file
-                    fileContent = "dryice.out";
+                    fileContent = new File([""], "dryice.out"); 
 
                     setParameters(file_ext);
                     Jmol.script(jmolApplet0, 'javascript init(scr); axes off; unitcell off;');
-                     jmolIsReady();
+                    jmolIsReady();
                 };
                 reader.readAsText(file);
             }
