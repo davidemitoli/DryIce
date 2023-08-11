@@ -45,10 +45,10 @@
 
             $('#select_ir_raman').show();
 
-            setParameters("out");
-            Jmol.script(jmolApplet0, 'load dryice.out; axes off; unitcell off; vibration on;');
+            jmolInitialize("jsmol", true)
+            //Jmol.script(jmolApplet0, 'load dryice.out; axes off; unitcell off; vibration on;');
+            jmolApplet(250, 'load dryice.out; axes off; unitcell off; vibration on;');
             jmolIsReady();
-            reader.readAsText(file);
 
         </script>
 
