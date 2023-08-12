@@ -1,9 +1,14 @@
 h1, body {
-    font-family:"Roboto", sans-serif;
+    font-family:"Calibri", sans-serif;
+    text-align:center;
 }
 h1 {
     color:#5f98b8
 }
 hr {
     border-width:0.4px;
+}
+.borders {
+    margin-left:5%;
+    margin-right:5%;
 }
