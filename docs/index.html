@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/styles.css">
-        <title>Animation of Vibrational Modes of Dry Ice</title>
         <script type="text/javascript" src="jsmol/JSmol.min.js"></script>
+        <title>Animation of Vibrational Modes of Dry Ice</title>
     </head>
     <body>
         <div class="borders">
@@ -15,11 +15,18 @@
             <div>
                 <label for="modeSelect">Select Vibrational Mode:</label>
                 <select id="modeSelect">
-                    <option value="0">Mode 0</option>
-                    <option value="1">Mode 1</option>
-                    <option value="2">Mode 2</option>
-                    <option value="12">Mode 12</option>
-                    <option value="13">Mode 13</option>
+                    <option value="22">Bending Eu 1 (657.40 cm-1)</option>
+                    <option value="23">Bending Eu 2 (657.40 cm-1)</option>
+                    <option value="24">Bending Fu 1 (659.45 cm-1)</option>
+                    <option value="25">Bending Fu 2 (659.45 cm-1)</option>
+                    <option value="26">Bending Fu 3 (659.45 cm-1)</option>
+                    <option value="27">Bending Fu 1 (666.15 cm-1)</option>
+                    <option value="28">Bending Fu 2 (666.15 cm-1)</option>
+                    <option value="29">Bending Fu 3 (666.15 cm-1)</option>
+                    <option value="30">Stretching Fg 1 (1359.95 cm-1)</option>
+                    <option value="31">Stretching Fg 2 (1359.95 cm-1)</option>
+                    <option value="32">Stretching Fg 3 (1359.95 cm-1)</option>
+                    <option value="33">Stretching Ag (1361.10 cm-1)</option>
                     <!-- Add more options for different modes -->
                 </select>
 
@@ -58,9 +65,9 @@
                     width: "100%",
                     height: 500,
                     j2sPath: "jsmol/j2s",
-                    jarPath: "jsmol/java",
-                    jarFile: "jsmol/java/JmolApplet.jar",
-                    isSigned: false,
+                    //jarPath: "jsmol/java",
+                    //jarFile: "jsmol/java/JmolApplet.jar",
+                    //isSigned: false,
                     debug: false,
                     use: "HTML5",
                     script: "load dryice.out {2 2 2}; axes off; unitcell off; vibration ON; vibration SCALE 6; model 10;"
