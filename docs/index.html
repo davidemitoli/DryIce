@@ -31,6 +31,7 @@
             <script>
                 function showMode() {
                     var selectedMode = document.getElementById("modeSelect").value;
+                    var myscript = "load dryice.out {2 2 2}; axes off; unitcell off; vibration ON; vibration SCALE 6; model " + selectedMode + ";";
                     var jmolApplet = Jmol.getApplet("jmolApplet", {
                         width: "100%",
                         height: 500,
@@ -40,7 +41,7 @@
                         isSigned: false,
                         debug: false,
                         use: "HTML5",
-                        script: "load dryice.out {2 2 2}; axes off; unitcell off; vibration ON; vibration SCALE 6; model " + selectedMode + ";";
+                        script: myscript;
                     });
 
                 }
