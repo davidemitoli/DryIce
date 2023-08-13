@@ -22,54 +22,58 @@
                     <option value="13">Mode 13</option>
                     <!-- Add more options for different modes -->
                 </select>
+
+                <button onclick="showSelectedMode()">Show Mode</button>
+
                 <!--
-                    <button onclick="showSelectedMode()">Show Mode</button>
+                    <button onclick="showMode()">Show Mode</button>
                 -->
-                <button onclick="showMode()">Show Mode</button>
             </div>
 
             <script>
-                function showMode() {
+                //function showMode() {
 
-                    var selectedMode = document.getElementById("modeSelect").value;
-                    var jmolApplet;
+                //    var selectedMode = document.getElementById("modeSelect").value;
+                //    var jmolApplet;
 
-                    jmolApplet = Jmol.getApplet("jmolApplet", {
-                        width: "100",
-                        height: 500,
-                        j2sPath: "jsmol/j2s",
-                        jarPath: "jsmol/java",
-                        jarFile: "jsmol/java/JmolApplet.jar",
-                        isSigned: false,
-                        debug: false,
-                        use: "HTML5",
-                        script: "load dryice.out {2 2 2}; axes off; unitcell off; vibration ON; vibration SCALE 6; model " + selectedMode + ";",
-                    });
-                    window.alert("Il modo selezionato è" + selectedMode);
-                    //var myscript = "load dryice.out {2 2 2}; axes off; unitcell off; vibration ON; vibration SCALE 6; model " + selectedMode + ";";
-                };
+                //    jmolApplet = Jmol.getApplet("jmolApplet", {
+                //        width: "100",
+                //        height: 500,
+                //        j2sPath: "jsmol/j2s",
+                //        jarPath: "jsmol/java",
+                //        jarFile: "jsmol/java/JmolApplet.jar",
+                //        isSigned: false,
+                //        debug: false,
+                //        use: "HTML5",
+                //        script: "load dryice.out {2 2 2}; axes off; unitcell off; vibration ON; vibration SCALE 6; model " + selectedMode + ";",
+                //    });
+                //    window.alert("Il modo selezionato è" + selectedMode);
+                //var myscript = "load dryice.out {2 2 2}; axes off; unitcell off; vibration ON; vibration SCALE 6; model " + selectedMode + ";";
+                //};
 
-                //var jmolApplet;
+                var jmolApplet;
 
                 // Initialize JSmol
-                //jmolApplet = Jmol.getApplet("jmolApplet", {
-                //    width: "100%",
-                //    height: 500,
-                //    j2sPath: "jsmol/j2s",
-                //    jarPath: "jsmol/java",
-                //    jarFile: "jsmol/java/JmolApplet.jar",
-                //    isSigned: false,
-                //    debug: false,
-                //    use: "HTML5",
-                //    script: "load dryice.out {2 2 2}; axes off; unitcell off; vibration ON; vibration SCALE 6; model 10;"
-                //});
+                var info = {
+                    width: "100%",
+                    height: 500,
+                    j2sPath: "jsmol/j2s",
+                    jarPath: "jsmol/java",
+                    jarFile: "jsmol/java/JmolApplet.jar",
+                    isSigned: false,
+                    debug: false,
+                    use: "HTML5",
+                    script: "load dryice.out {2 2 2}; axes off; unitcell off; vibration ON; vibration SCALE 6; model 10;"
+                }
+
+                jmolApplet = Jmol.getApplet("jmolApplet", info);
 
                 // Show selected vibrational mode
-                //function showSelectedMode() {
-                //    var selectedMode = document.getElementById("modeSelect").value;
-                //    var script = "vibration ON; vibration SCALE 6; model " + selectedMode + ";";
-                //    jmolApplet.script(script);
-                //}
+                function showSelectedMode() {
+                    var selectedMode = document.getElementById("modeSelect").value;
+                    var script = "vibration ON; vibration SCALE 6; model " + selectedMode + ";";
+                    jmolApplet.script(script);
+                }
             </script>
         </div>
     </body>
