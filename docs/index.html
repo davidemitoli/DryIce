@@ -9,8 +9,14 @@
     </head>
     <body>
         <div class="borders">
+
             <h1>Animation of Vibrational Modes of Dry Ice</h1>
-            <hr>
+            <p><a href="davide.mitoli@unito.it">Davide Mitoli</a>
+            and <a href="alessandro.erba@unito.it">Alessandro Erba</a></p>
+            <p><i>Dipartimento di Chimica, Università di Torino, via Giuria 5, 
+                10125 Torino, Italy </i></p>
+
+            <hr> <!-- big line -->
 
             <div>
                 <label for="modeSelect">Select Vibrational Mode:</label>
@@ -41,7 +47,7 @@
                 var info = {
                     width: "100%",
                     //height: "100%",
-                    height: 500,
+                    //height: 500,
                     j2sPath: "jsmol/j2s",
                     //jarPath: "jsmol/java",
                     //jarFile: "jsmol/java/JmolApplet.jar",
@@ -49,7 +55,7 @@
                     debug: false,
                     use: "HTML5",
                     //script: "load dryice.out {2 2 2}; axes off; unitcell off;",
-                    script: 'load dryice.out {2 2 2}; unitcell "conventional"',
+                    script: 'load dryice.out {2 2 2}; unitcell "conventional"; axes off',
                 }
 
                 jmolApplet = Jmol.getApplet("jmolApplet", info);
